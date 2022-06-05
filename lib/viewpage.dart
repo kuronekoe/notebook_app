@@ -17,6 +17,7 @@ class _ViewPageState extends State<ViewPage> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        backgroundColor:Colors.deepPurple,
         leading: IconButton(
           onPressed: (){
             Navigator.pop(context,{
@@ -24,9 +25,9 @@ class _ViewPageState extends State<ViewPage> {
               'edited_date':widget.note_date,
             });
           },
-          icon: Icon(Icons.keyboard_arrow_left),
+          icon: const Icon(Icons.keyboard_arrow_left),
           ),
-        title: Text('Reading'),
+        title: const Text('Reading'),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -36,7 +37,7 @@ class _ViewPageState extends State<ViewPage> {
             children: [
               Text(
                 widget.note_date,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 15,
                   color: Colors.grey,
                 ),
@@ -44,7 +45,7 @@ class _ViewPageState extends State<ViewPage> {
                 ),
               Text(
                 widget.notes,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 17,
                 ),
                 ),
@@ -53,6 +54,7 @@ class _ViewPageState extends State<ViewPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor:Colors.deepPurple,
         onPressed: () async{
           Map result =await Navigator.push(context,MaterialPageRoute(builder:(BuildContext context)=>EditPage(note: widget.notes,)));
           setState(() {          
@@ -60,7 +62,7 @@ class _ViewPageState extends State<ViewPage> {
             widget.note_date=result['edited_date'];
           });
         },
-        child: Icon(Icons.edit),
+        child: const Icon(Icons.edit),
         ),
     );
   }

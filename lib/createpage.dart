@@ -12,20 +12,12 @@ class _CreatePageState extends State<CreatePage> {
   String note_date='';
   @override
   Widget build(BuildContext context) {
-    note_date='${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}';
+    note_date='${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year} ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}';
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        backgroundColor:Colors.deepPurple,
         actions: [
-          IconButton(
-          onPressed: (){
-            
-          },
-          icon: Icon(
-            Icons.mic,
-            color: Colors.white,
-            ),
-        ),
           TextButton(
           onPressed: (){
             Navigator.pop(context,{
@@ -33,7 +25,7 @@ class _CreatePageState extends State<CreatePage> {
               'note_date':note_date,
             });
           },
-          child: Text(
+          child: const Text(
             'Save',
             style: TextStyle(
               color: Colors.white,
@@ -54,7 +46,7 @@ class _CreatePageState extends State<CreatePage> {
           maxLength: TextField.noMaxLength,
           maxLines: null,
           expands: true,
-          decoration: InputDecoration.collapsed(
+          decoration: const InputDecoration.collapsed(
             hintText: 'Enter note',
             hintStyle: TextStyle(
               color: Colors.grey,

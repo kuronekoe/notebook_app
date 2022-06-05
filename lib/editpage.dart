@@ -14,11 +14,12 @@ class _EditPageState extends State<EditPage> {
 
   @override
   Widget build(BuildContext context) {
-    edited_date='${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}';
+    edited_date='${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year} ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}';
     myController.text=widget.note;
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        backgroundColor:Colors.deepPurple,
         actions: [
           TextButton(
           onPressed: (){
@@ -31,7 +32,7 @@ class _EditPageState extends State<EditPage> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: Colors.grey[400],
-                  content: Text(
+                  content: const Text(
                     "Empty note",
                     style:TextStyle(
                       color:Colors.black,
@@ -41,7 +42,7 @@ class _EditPageState extends State<EditPage> {
                 );
             }
           },
-          child: Text(
+          child: const Text(
             'Save',
             style: TextStyle(
               color: Colors.white,
@@ -55,7 +56,7 @@ class _EditPageState extends State<EditPage> {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: TextField(
-          style:TextStyle(
+          style:const TextStyle(
                 fontSize: 17,
               ),
           controller: myController,
@@ -66,7 +67,7 @@ class _EditPageState extends State<EditPage> {
           maxLength: TextField.noMaxLength,
           maxLines: null,
           expands: true,
-          decoration: InputDecoration.collapsed(
+          decoration: const InputDecoration.collapsed(
             hintText: 'Enter note',
             hintStyle: TextStyle(
               color: Colors.grey,
